@@ -231,8 +231,7 @@ Transport.prototype.request = function (params, cb) {
       if (errors[status]) {
         err = new errors[status](parsedBody && parsedBody.error);
       } else {
-        console.log('ES error body', body);
-        err = new errors.Generic('unknown error');
+        err = new errors.Generic(body || 'unknown error');
       }
     }
 
